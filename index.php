@@ -18,12 +18,13 @@ $creatures = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <body>
 
         <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="./assets/img/logo.jpg" height="60" alt="Heroes logo"> Heroes of Might and Magic
             </a>
             <a class="btn btn-secondary" href="crearCriatura.php">Crear una criatura</a>
         </nav>
 
+        <!-- hero -->
         <div class="container my-4">
             <div class="row">
                 <div class="col-md-8">
@@ -36,17 +37,18 @@ $creatures = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
 
+            <!-- cards -->
             <div class="row mt-4">
                 <?php foreach ($creatures as $creature): ?>
                     <div class="col-md-4">
                         <div class="card mb-4">
-                            <img src="criatura.jpeg" class="card-img-top" alt="Creature Image">
+                            <img src="<?= htmlspecialchars($creature['avatar']) ?>" class="card-img-top" alt="Avatar de <?= htmlspecialchars($creature['name']) ?>">
                             <div class="card-body">
-                                <h5 class="card-title"><?= htmlspecialchars($creature['name']); ?></h5>
-                                <p class="card-text"><?= htmlspecialchars($creature['description']); ?></p>
-                                <a href="detalleCriatura.php?id=<?= urlencode($creature['idCreature']); ?>" class="btn btn-secondary btn-sm">More Info</a>
-                                <a href="modificarCriatura.php?id=<?= urlencode($creature['idCreature']); ?>" class="btn btn-success btn-sm">Modificar</a>
-                                <a href="exterminarCriatura.php?id=<?= urlencode($creature['idCreature']); ?>" class="btn btn-danger btn-sm">Exterminar</a>
+                                <h5 class="card-title"><?= htmlspecialchars($creature['name']) ?></h5>
+                                <p class="card-text"><?= htmlspecialchars($creature['description']) ?></p>
+                                <a href="detalleCriatura.php?id=<?= $creature['idCreature'] ?>" class="btn btn-secondary btn-sm">More Info</a>
+                                <a href="editarCriatura.php?id=<?= $creature['idCreature'] ?>" class="btn btn-success btn-sm">Modificar</a>
+                                <a href="eliminarCriatura.php?id=<?= $creature['idCreature'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar esta criatura?')">Exterminar</a>
                             </div>
                         </div>
                     </div>
