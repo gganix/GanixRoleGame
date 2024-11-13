@@ -1,5 +1,10 @@
 <?php
-require './assets/db/db.php';
+session_start();
+if (!isset($_SESSION['authenticated'])) {
+    header('Location: login.php');
+    exit();
+}
+require '../assets/db/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
@@ -12,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("INSERT INTO creature (name, description, avatar, attackPower, lifeLevel, weapon) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->execute([$name, $description, $avatar, $attackPower, $lifeLevel, $weapon]);
 
-    header('Location: index.php');
+    header('Location: ../public/index.php');
     exit();
 }
 ?>
@@ -28,8 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <body>
         <nav class="navbar navbar-dark bg-dark">
             <a class="navbar-brand" href="index.php">
-                <img src="./assets/img/logo.jpg" height="60" alt="Heroes logo"> Heroes of Might and Magic
+                <img src="../assets/img/logo.jpg" height="60" alt="Heroes logo"> Heroes of Might and Magic
             </a>
+            <?php if ($authenticated): ?>
+                <a class="btn btn-secondary" href="crearCriatura.php">Crear una criatura</a>
+                <a class="btn btn-danger" href="logout.php">Cerrar sesión</a>
+            <?php else: ?>
+                <a class="btn btn-primary" href="login.php">Login</a>
+            <?php endif; ?>
         </nav>
 
         <div class="container my-5">
