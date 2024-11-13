@@ -1,7 +1,10 @@
 <?php
+require 'db.php';
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+$id = $_GET['id'];
+$stmt = $pdo->prepare("DELETE FROM creature WHERE id = ?");
+$stmt->execute([$id]);
 
+header('Location: index.php');
+exit();
+?>
