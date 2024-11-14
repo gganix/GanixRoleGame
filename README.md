@@ -62,32 +62,34 @@ Para ejecutar este proyecto, necesitas:
 
 ## Estructura de Carpetas
 
-.
-├── app
-│   ├── Controllers
-│   │   ├── authController.php          # Controlador de autenticación
-│   │   └── creatureController.php       # Controlador de criaturas
-│   ├── Helpers
-│   │   └── sessionHelper.php            # Helper para manejo de sesiones
-│   ├── Models
-│   │   ├── Creature.php                 # Modelo de la entidad Criatura
-│   │   └── Database.php                 # Clase para la conexión a la base de datos
-│   └── Views
-│       ├── Auth
-│       │   └── login.php                # Vista de inicio de sesión
-│       ├── Creatures
-│       │   ├── create.php               # Vista de creación de criaturas
-│       │   ├── edit.php                 # Vista de edición de criaturas
-│       │   ├── index.php                # Vista de listado de criaturas
-│       │   └── show.php                 # Vista de detalles de una criatura
-│       └── Layouts
-│           └── navbar.php               # Navbar de la aplicación
-├── assets
-│   ├── img
-│   │   ├── logo.jpg                     # Logo para el navbar
-│   │   └── heroes_banner.jpg            # Banner de la aplicación
-│   └── rolegame.sql                     # Script SQL para crear la base de datos y la tabla
-└── public
-    ├── index.php                        # Punto de entrada principal
-    ├── login.php                        # Punto de entrada para inicio de sesión
-    └── logout.php                       # Punto de entrada para cerrar sesión
+## Estructura de Carpetas
+
+.  
+├── app  
+│   ├── Controllers  
+│   │   ├── authController.php          # Controlador de autenticación  
+│   │   └── creatureController.php      # Controlador de criaturas  
+│   ├── Helpers  
+│   │   └── sessionHelper.php           # Helper para manejo de sesiones  
+│   ├── Models  
+│   │   ├── Creature.php                # Modelo de la entidad Criatura  
+│   │   └── Database.php                # Clase para la conexión a la base de datos  
+│   └── Views  
+│       ├── Auth  
+│       │   └── login.php               # Vista de inicio de sesión  
+│       ├── Creatures  
+│       │   ├── create.php              # Vista de creación de criaturas  
+│       │   ├── edit.php                # Vista de edición de criaturas  
+│       │   ├── index.php               # Vista de listado de criaturas  
+│       │   └── show.php                # Vista de detalles de una criatura  
+│       └── Layouts  
+│           └── navbar.php              # Navbar de la aplicación  
+├── assets  
+│   ├── img  
+│   │   ├── logo.jpg                    # Logo para el navbar  
+│   │   └── heroes_banner.jpg           # Banner de la aplicación  
+│   └── rolegame.sql                    # Script SQL para crear la base de datos y la tabla  
+└── public  
+    ├── index.php                       # Punto de entrada principal  
+    ├── login.php                       # Punto de entrada para inicio de sesión  
+    └── logout.php                      # Punto de entrada para cerrar sesión  
